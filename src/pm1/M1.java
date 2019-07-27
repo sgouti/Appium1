@@ -1,35 +1,53 @@
 package pm1;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.remote.MobileCapabilityType;
 
-public class M1 {
+public class M1 extends BaseClass {
 
-	public static void main(String[] args)    {
+	public static void main(String[] args) throws IOException, InterruptedException    {
 		// TODO Auto-generated method stub
-		SetupAndrd();
+		AndroidDriver<AndroidElement> Driver;
+		Driver=SetupAndrd();
+		Driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		String AppXpath="//android.widget.TextView[@text='Preference']";
+		//Driver.findElementByXPath("//android.widget.TextView[@text='Preference']").click();
+		Driver.findElementByXPath(AppXpath).click();
+		Driver.findElementByXPath("//android.widget.TextView[@text='3. Preference dependencies']").click();
+		//Driver.findElementById("android:id/checkbox").click();//android.widget.CheckBox
+		Driver.findElementByXPath("//android.widget.TextView[@text='WiFi']//ancestor::android.widget.LinearLayout//*[@resource-id='android:id/checkbox']").click();
+	
+	if(Driver.findElementByXPath("//android.widget.LinearLayout//*[@text='WiFi settings']").isEnabled())//WiFi settings
+		{
+			System.out.println("Setting option is pass");
+			Driver.findElementByXPath("//android.widget.LinearLayout//*[@text='WiFi settings']").click();
+			Driver.findElementById("android:id/edit").sendKeys("Siddu");
+			Driver.hideKeyboard();
+			Driver.findElementByXPath("//android.widget.Button[@text='OK']").click();;
+			
+		}
+		 if(!Driver.findElementByXPath("//android.widget.LinearLayout//*[@text='WiFi settings']").isEnabled())
+		{
+			System.out.println("Setting option is failed");
+		}
+	
 	}
 	
-	public static void  SetupAndrd()
-	{	try {
-		File fln=new File("AddFile");
-		File Gtapp=new File(fln,"ApiDemos-debug.apk");
-		DesiredCapabilities Cap=new DesiredCapabilities();
-		Cap.setCapability(MobileCapabilityType.DEVICE_NAME, "sid1");
-		Cap.setCapability(MobileCapabilityType.APP, Gtapp.getAbsolutePath());
-		AndroidDriver<AndroidElement> Driver=new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"),Cap);
-	}
-	catch(MalformedURLException e)
+	
+	public static void Runcmd() throws IOException
 	{
-		System.out.println("eror"+ e);
-	}
+		Process p = Runtime
+                .getRuntime()
+                .exec("cmd /c start cmd.exe /K \"cd C:\\Users\\siddh\\AppData\\Local\\Android\\Sdk\\emulator &&  emulator -avd Sid1");
+		 SetupAndrd();
 	}
 
+	
+	
 }
