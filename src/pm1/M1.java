@@ -59,7 +59,7 @@ public class M1 extends BaseClass {
 		{
 			System.out.println("email btn is selected and Button Name:- "+ EmailRdioBtn.toString());
 		}
-		GetAndrdEleemnt("id","naukriApp.appModules.login:id/et_email").sendKeys("sidu@gmail.com");//enter emailid
+		GetAndrdEleemnt("id","naukriApp.appModules.login:id/et_email").sendKeys("sidu@gmail.com");
 		AndroidElement PassFld=	GetAndrdEleemnt("id","naukriApp.appModules.login:id/et_password");
 		PassFld.sendKeys(".sidsss");
 		//enter pass
