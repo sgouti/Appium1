@@ -11,7 +11,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class BaseClass {
+public class BaseClass extends GlobalMethods {
 
 	public static AndroidDriver<AndroidElement>  SetupAndrd()
 	{	
