@@ -15,7 +15,7 @@ public class BaseClass extends GlobalMethods {
 
 	public static AndroidDriver<AndroidElement>  SetupAndrd()
 	{	
-		AndroidDriver<AndroidElement> Driver;
+		
 		try {
 		File fln=new File("E:\\Automation\\Appium\\Apkfolder");
 		File Gtapp=new File(fln,"naukriApp.apk");
