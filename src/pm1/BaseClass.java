@@ -12,13 +12,13 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class BaseClass {
-
+	public static AndroidDriver<AndroidElement> Driver;
 	public static AndroidDriver<AndroidElement>  SetupAndrd()
 	{	
-		AndroidDriver<AndroidElement> Driver;
+		
 		try {
 		File fln=new File("E:\\Automation\\Appium\\Apkfolder");
-		File Gtapp=new File(fln,"naukriApp.apk");
+		File Gtapp=new File(fln,M1.Apk);
 		DesiredCapabilities Cap=new DesiredCapabilities();
 		
 		Cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Sid1");
