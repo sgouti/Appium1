@@ -1,10 +1,10 @@
 package pm1;
 
-import io.appium.java_client.android.AndroidDriver;
+
 import io.appium.java_client.android.AndroidElement;
 
-public class GlobalMethods {
-	public static AndroidDriver<AndroidElement> Driver;
+public class GlobalMethods extends BaseClass{
+	
 	public static AndroidElement GetAndrdEleemnt(String XpathType, String value) {
 		AndroidElement driver = null;
 

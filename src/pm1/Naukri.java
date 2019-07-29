@@ -4,7 +4,7 @@ import java.util.List;
 
 import io.appium.java_client.android.AndroidElement;
 
-public class Naukri extends BaseClass{
+public class Naukri extends GlobalMethods{
 
 	public static void NaukriLogin() throws InterruptedException {
 		if(Driver.findElementsByAndroidUIAutomator("text(\"LOGIN\")").size()==0)
