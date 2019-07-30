@@ -20,12 +20,14 @@ public class M1  {
 	//	Naukri.NaukriLogout();
 	
 		CoreoPG.SetupAndrd();
-		CoreoPG.CameraAndroidPermission();
-		CoreoPG.AudioAndroidPermission();
+		CoreoPG.AndroidPermission();
+		
 		//CoreoPG.PasscodeVrfn();
 		CoreoPG.LogIn("Lori.whitfoot@mailinator.com","Emids@123");
-		CoreoPG.ViewProfile();
-		CoreoPG.Logout();
+		Thread.sleep(3000);
+		//CoreoPG.ViewProfile();
+		CoreoPG.EditProfile("Lori","WhitefooT","Male","50","Appium Testing","9900919191");
+	//	CoreoPG.Logout();
 	}
 
 }

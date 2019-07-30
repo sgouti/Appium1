@@ -1,6 +1,8 @@
 package pm1;
 
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class GlobalLocators extends BaseClass {
 
@@ -35,6 +37,18 @@ String[] temp=LocParam.split("#");
 		}
 		return driver;
 }
+	public static void ClearTextfield(AndroidElement TextFldEmelnt)
+	{	
+		int a=TextFldEmelnt.getText().length();
+		TextFldEmelnt.click();
+		System.out.println(a+"chars");
+		for(int i=0;i<a;i++)
+		{
+			//Driver.getKeyboard();
+			Driver.pressKeyCode(67);
+		}
+		Driver.hideKeyboard();
 	
+	}
 	
 }
